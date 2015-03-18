@@ -11,6 +11,7 @@
 
 namespace Plum\PlumFile;
 
+use Cocur\Vale\Vale;
 use Plum\Plum\Converter\ConverterInterface;
 use SplFileInfo;
 use Symfony\Component\PropertyAccess\PropertyAccess;
@@ -36,13 +37,8 @@ class FileGetContentsConverter implements ConverterInterface
     private $contentProperty;
 
     /**
-     * @var PropertyAccessor
-     */
-    private $accessor;
-
-    /**
-     * @param string|null $filenameProperty
-     * @param string|null $contentProperty
+     * @param string|array|null $filenameProperty
+     * @param string|array|null $contentProperty
      */
     public function __construct($filenameProperty = null, $contentProperty = null)
     {
@@ -51,9 +47,6 @@ class FileGetContentsConverter implements ConverterInterface
         }
         $this->filenameProperty = $filenameProperty;
         $this->contentProperty  = $contentProperty;
-        if ($filenameProperty) {
-            $this->accessor = PropertyAccess::createPropertyAccessor();
-        }
     }
 
     /**
@@ -63,7 +56,7 @@ class FileGetContentsConverter implements ConverterInterface
      */
     public function convert($item)
     {
-        $filename = $this->filenameProperty ? $this->accessor->getValue($item, $this->filenameProperty) : $item;
+        $filename = $this->filenameProperty ? Vale::get($item, $this->filenameProperty) : $item;
         if ($item instanceof SplFileInfo) {
             $filename = $item->getPathname();
         }
@@ -73,12 +66,6 @@ class FileGetContentsConverter implements ConverterInterface
 
         $content = file_get_contents($filename);
 
-        if ($this->contentProperty) {
-            $this->accessor->setValue($item, $this->contentProperty, $content);
-        } else {
-            $item = $content;
-        }
-
-        return $item;
+        return $this->contentProperty ? Vale::set($item, $this->contentProperty, $content) : $content;
     }
 }

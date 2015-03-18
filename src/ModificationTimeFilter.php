@@ -14,8 +14,6 @@ namespace Plum\PlumFile;
 use DateTime;
 use Plum\Plum\Filter\FilterInterface;
 use SplFileInfo;
-use Symfony\Component\PropertyAccess\PropertyAccess;
-use Symfony\Component\PropertyAccess\PropertyAccessor;
 
 /**
  * ModificationTimeFilter
@@ -30,27 +28,13 @@ class ModificationTimeFilter implements FilterInterface
      * @var DateTime[]
      */
     private $time;
-    /**
-     * @var string|null
-     */
-    private $property;
-
-    /**
-     * @var PropertyAccessor
-     */
-    private $accessor;
 
     /**
      * @param DateTime[]  $time
-     * @param string|null $property
      */
-    public function __construct(array $time, $property = null)
+    public function __construct(array $time)
     {
         $this->time = $time;
-        if ($property) {
-            $this->property = $property;
-            $this->accessor = PropertyAccess::createPropertyAccessor();
-        }
     }
 
     /**
@@ -60,10 +44,7 @@ class ModificationTimeFilter implements FilterInterface
      */
     public function filter($item)
     {
-        $filename = $this->property ? $this->accessor->getValue($item, $this->property) : $item;
-        if ($filename instanceof SplFileInfo) {
-            $filename = $filename->getPathname();
-        }
+        $filename = ($item instanceof SplFileInfo) ? $item->getPathname() : $item;
 
         $modifiedTime = filemtime($filename);
         if (!empty($this->time['after']) && $modifiedTime <= $this->time['after']->getTimestamp()) {

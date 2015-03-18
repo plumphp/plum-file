@@ -70,7 +70,7 @@ class FileGetContentsConverterTest extends \PHPUnit_Framework_TestCase
      */
     public function convertShouldReturnContentIfArrayGiven()
     {
-        $converter = new FileGetContentsConverter('[filename]');
+        $converter = new FileGetContentsConverter(['filename']);
         $item = $converter->convert(['filename' => vfsStream::url('fixtures/foo.txt')]);
 
         $this->assertEquals('Hello World', $item);
@@ -83,7 +83,7 @@ class FileGetContentsConverterTest extends \PHPUnit_Framework_TestCase
      */
     public function convertShouldReturnItemWithContentIfArrayGiven()
     {
-        $converter = new FileGetContentsConverter('[filename]', '[content]');
+        $converter = new FileGetContentsConverter(['filename'], ['content']);
         $item = $converter->convert(['filename' => vfsStream::url('fixtures/foo.txt')]);
 
         $this->assertEquals('Hello World', $item['content']);
@@ -97,7 +97,7 @@ class FileGetContentsConverterTest extends \PHPUnit_Framework_TestCase
     public function convertShouldThrowExceptionIfContentPropertyButNoFilenamePropertyGiven()
     {
         try {
-            new FileGetContentsConverter(null, '[content]');
+            new FileGetContentsConverter(null, ['content']);
             $this->assertTrue(false);
         } catch (InvalidArgumentException $e) {
             $this->assertTrue(true);

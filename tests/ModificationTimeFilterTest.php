@@ -111,19 +111,6 @@ class ModificationTimeFilterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @test
-     * @covers Plum\PlumFile\ModificationTimeFilter::__construct()
-     * @covers Plum\PlumFile\ModificationTimeFilter::filter()
-     */
-    public function filterShouldReturnTrueIsFileNameIsInArray()
-    {
-        $filter = new ModificationTimeFilter(['after' => new DateTime('-3 days')], '[filename]');
-
-        $file = $this->getMockModifiedFile('foo.txt', new DateTime('-2 days'))->url();
-        $this->assertTrue($filter->filter(['filename' => $file]));
-    }
-
-    /**
      * @param string   $filename
      * @param DateTime $modifiedTime
      *

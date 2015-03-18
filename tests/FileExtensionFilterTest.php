@@ -67,28 +67,4 @@ class FileExtensionFilterTest extends \PHPUnit_Framework_TestCase
 
         $this->assertFalse($converter->filter('test.txt'));
     }
-
-    /**
-     * @test
-     * @covers Plum\PlumFile\FileExtensionFilter::__construct()
-     * @covers Plum\PlumFile\FileExtensionFilter::filter()
-     */
-    public function convertShouldReturnTrueIfFileExtensionInArrayMatches()
-    {
-        $converter = new FileExtensionFilter('md', '[filename]');
-
-        $this->assertTrue($converter->filter(['filename' => 'test.md']));
-    }
-
-    /**
-     * @test
-     * @covers Plum\PlumFile\FileExtensionFilter::__construct()
-     * @covers Plum\PlumFile\FileExtensionFilter::filter()
-     */
-    public function convertShouldReturnFalseIfFileExtensionInArrayNotMatches()
-    {
-        $converter = new FileExtensionFilter('md', '[filename]');
-
-        $this->assertFalse($converter->filter(['filename' => 'test.txt']));
-    }
 }

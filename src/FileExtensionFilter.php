@@ -12,8 +12,7 @@
 namespace Plum\PlumFile;
 
 use Plum\Plum\Filter\FilterInterface;
-use Symfony\Component\PropertyAccess\PropertyAccess;
-use Symfony\Component\PropertyAccess\PropertyAccessor;
+use SplFileInfo;
 
 /**
  * FileExtensionFilter
@@ -27,26 +26,15 @@ class FileExtensionFilter implements FilterInterface
     /** @var string[] */
     private $extensions;
 
-    /** @var string|null */
-    private $property;
-
-    /** @var PropertyAccessor */
-    private $accessor;
-
     /**
      * @param string|string[] $extension
-     * @param string|null     $property
      */
-    public function __construct($extension, $property = null)
+    public function __construct($extension)
     {
         if (is_string($extension) === true) {
             $extension = [$extension];
         }
         $this->extensions = $extension;
-        if ($property) {
-            $this->property = $property;
-            $this->accessor = PropertyAccess::createPropertyAccessor();
-        }
     }
 
     /**
@@ -56,7 +44,7 @@ class FileExtensionFilter implements FilterInterface
      */
     public function filter($item)
     {
-        $filename = $this->property === null ? $item : $this->accessor->getValue($item, $this->property);
+        $filename = ($item instanceof SplFileInfo ? $item->getPathname() : $item);
 
         foreach ($this->extensions as $extension) {
             if (preg_match(sprintf('/\.%s/', $extension), $filename) === 1) {
