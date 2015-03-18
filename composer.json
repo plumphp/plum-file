@@ -1,14 +1,16 @@
 {
-  "name": "plumphp/plum-file",
+  "name":        "plumphp/plum-file",
   "description": "Additional converters and file to work with files in Plum.",
-  "license": "MIT",
-  "authors": [
+  "license":     "MIT",
+  "authors":     [
     {
-      "name": "Florian Eckerstorfer",
-      "email": "florian@eckerstorfer.co"
+      "name":     "Florian Eckerstorfer",
+      "email":    "florian@eckerstorfer.co",
+      "homepage": "https://florian.ec"
     }
   ],
-  "require": {
+  "require":     {
+    "php":                     ">=5.4",
     "plumphp/plum":            "dev-master@dev",
     "symfony/property-access": "~2.3"
   },
@@ -17,9 +19,7 @@
     "mockery/mockery":    "~0.9",
     "mikey179/vfsStream": "~1.4"
   },
-  "autoload": {
-    "psr-4": {
-      "Plum\\PlumFile\\": "src"
-    }
+  "autoload":    {
+    "psr-4": {"Plum\\PlumFile\\": "src"}
   }
 }
