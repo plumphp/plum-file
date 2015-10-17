@@ -110,11 +110,13 @@ $converter->convert('foo.txt'); // -> 'content of foo.txt'
 If the item is a more complex structure it is possible to define the [Vale](https://github.com/cocur/vale) accessor
 property for both the filename and the content.
 
+```php
 use Plum\PlumFile\FileGetContentsConverter;
 
 $converter = new FileGetContentsConverter('file', 'content');
 $converter->convert(['file' => foo.txt']);
 // -> ['file' => 'foo.txt', 'content' => content of foo.txt']
+```
 
 
 Change Log
