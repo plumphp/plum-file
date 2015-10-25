@@ -1,6 +1,7 @@
 {
   "name":        "plumphp/plum-file",
   "description": "Additional converters and file to work with files in Plum.",
+  "keywords":    ["plum", "file", "import", "export"],
   "license":     "MIT",
   "authors":     [
     {
@@ -10,12 +11,12 @@
     }
   ],
   "require":     {
-    "php":                ">=5.4",
+    "php":                ">=5.5",
     "plumphp/plum":       "~0.2",
     "cocur/vale":         "~0.2"
   },
   "require-dev": {
-    "phpunit/phpunit":    "~4.3",
+    "phpunit/phpunit":    "~4.8",
     "mockery/mockery":    "~0.9",
     "mikey179/vfsStream": "~1.4"
   },
