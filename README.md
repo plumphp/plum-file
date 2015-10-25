@@ -5,8 +5,10 @@
 > PlumFile includes converters and filters to work with files in Plum. Plum is a data processing pipeline for PHP.
 
 [![Build Status](https://travis-ci.org/plumphp/plum-file.svg)](https://travis-ci.org/plumphp/plum-file)
+[![Windows Build status](https://ci.appveyor.com/api/projects/status/eygcmud4de866629?svg=true)](https://ci.appveyor.com/project/florianeckerstorfer/plum-file)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/plumphp/plum-file/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/plumphp/plum-file/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/plumphp/plum-file/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/plumphp/plum-file/?branch=master)
+[![StyleCI](https://styleci.io/repos/30713704/shield)](https://styleci.io/repos/30713704)
 
 Developed by [Florian Eckerstorfer](https://florian.ec) in Vienna, Europe.
 
