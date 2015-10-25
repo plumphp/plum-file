@@ -12,9 +12,8 @@
 namespace Plum\PlumFile;
 
 /**
- * FileExtensionFilterTest
+ * FileExtensionFilterTest.
  *
- * @package   Plum\PlumFile
  * @author    Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright 2014-2015 Florian Eckerstorfer
  * @group     unit
@@ -44,6 +43,7 @@ class FileExtensionFilterTest extends \PHPUnit_Framework_TestCase
 
         $this->assertFalse($converter->filter('test.txt'));
     }
+
     /**
      * @test
      * @covers Plum\PlumFile\FileExtensionFilter::__construct()

@@ -15,9 +15,8 @@ use Plum\Plum\Filter\FilterInterface;
 use SplFileInfo;
 
 /**
- * FileExtensionFilter
+ * FileExtensionFilter.
  *
- * @package   Plum\PlumFile
  * @author    Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright 2014-2015 Florian Eckerstorfer
  */

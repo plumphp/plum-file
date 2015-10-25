@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Plum\PlumFile;
 
 use DateTime;
@@ -10,9 +9,8 @@ use org\bovigo\vfs\vfsStreamFile;
 use SplFileInfo;
 
 /**
- * ModificationTimeFilterTest
+ * ModificationTimeFilterTest.
  *
- * @package   Plum\PlumFile
  * @author    Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright 2015 Florian Eckerstorfer
  * @group     unit
@@ -37,8 +35,8 @@ class ModificationTimeFilterTest extends \PHPUnit_Framework_TestCase
     public function filterShouldReturnTrueIfFileIsInRange()
     {
         $filter = new ModificationTimeFilter([
-            'after' => new DateTime('-3 days'),
-            'before' => new DateTime('-1 day')
+            'after'  => new DateTime('-3 days'),
+            'before' => new DateTime('-1 day'),
         ]);
 
         $file = $this->getMockModifiedFile('foo.txt', new DateTime('-2 days'))->url();

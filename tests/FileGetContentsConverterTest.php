@@ -17,9 +17,8 @@ use org\bovigo\vfs\vfsStreamDirectory;
 use SplFileInfo;
 
 /**
- * FileGetContentsConverterTest
+ * FileGetContentsConverterTest.
  *
- * @package   Plum\PlumFile
  * @author    Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright 2014 Florian Eckerstorfer
  * @group     unit
@@ -34,7 +33,7 @@ class FileGetContentsConverterTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $structure = ['foo.txt' => 'Hello World'];
+        $structure  = ['foo.txt' => 'Hello World'];
         $this->root = vfsStream::setup('fixtures', null, $structure);
 
         $this->converter = new FileGetContentsConverter();
@@ -71,7 +70,7 @@ class FileGetContentsConverterTest extends \PHPUnit_Framework_TestCase
     public function convertShouldReturnContentIfArrayGiven()
     {
         $converter = new FileGetContentsConverter(['filename']);
-        $item = $converter->convert(['filename' => vfsStream::url('fixtures/foo.txt')]);
+        $item      = $converter->convert(['filename' => vfsStream::url('fixtures/foo.txt')]);
 
         $this->assertEquals('Hello World', $item);
     }
@@ -84,7 +83,7 @@ class FileGetContentsConverterTest extends \PHPUnit_Framework_TestCase
     public function convertShouldReturnItemWithContentIfArrayGiven()
     {
         $converter = new FileGetContentsConverter(['filename'], ['content']);
-        $item = $converter->convert(['filename' => vfsStream::url('fixtures/foo.txt')]);
+        $item      = $converter->convert(['filename' => vfsStream::url('fixtures/foo.txt')]);
 
         $this->assertEquals('Hello World', $item['content']);
     }
