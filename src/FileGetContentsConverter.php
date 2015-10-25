@@ -14,13 +14,10 @@ namespace Plum\PlumFile;
 use Cocur\Vale\Vale;
 use Plum\Plum\Converter\ConverterInterface;
 use SplFileInfo;
-use Symfony\Component\PropertyAccess\PropertyAccess;
-use Symfony\Component\PropertyAccess\PropertyAccessor;
 
 /**
- * FileGetContentsConverter
+ * FileGetContentsConverter.
  *
- * @package   Plum\PlumFile
  * @author    Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright 2014 Florian Eckerstorfer
  */

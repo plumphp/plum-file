@@ -16,9 +16,8 @@ use Plum\Plum\Filter\FilterInterface;
 use SplFileInfo;
 
 /**
- * ModificationTimeFilter
+ * ModificationTimeFilter.
  *
- * @package   Plum\PlumFile
  * @author    Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright 2015 Florian Eckerstorfer
  */
@@ -30,7 +29,7 @@ class ModificationTimeFilter implements FilterInterface
     private $time;
 
     /**
-     * @param DateTime[]  $time
+     * @param DateTime[] $time
      */
     public function __construct(array $time)
     {
